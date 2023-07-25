@@ -20,7 +20,7 @@ public class CopyFilesInUsbApplication {
                 boolean flag = true;
                 while (flag) {
                     int timeout;
-                    File usbRoot = new File("D:\\");
+                    File usbRoot = new File(usbPath);
 
                     if (usbRoot.exists()) {
                         List<File> files = FileHelper.findFiles(usbRoot, containKey);
