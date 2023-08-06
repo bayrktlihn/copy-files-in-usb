@@ -44,7 +44,7 @@ public class FileHelper {
 
     public static List<File> findFiles(File inFile, String contain) {
         List<File> files = findFiles(inFile);
-        return files.stream().filter(file -> file.getName().toLowerCase().contains(contain)).collect(Collectors.toList());
+        return files.stream().filter(file -> file.getName().toLowerCase().contains(contain.toLowerCase())).collect(Collectors.toList());
     }
 
 
@@ -64,14 +64,14 @@ public class FileHelper {
         }
         String name = file.getName();
         int lastIndexOf = name.lastIndexOf(".");
-        if(lastIndexOf == -1){
+        if (lastIndexOf == -1) {
             return "";
         }
         return name.substring(lastIndexOf + 1);
     }
 
-    public static String getFileNameWithoutExtension(File file){
-        if(file == null){
+    public static String getFileNameWithoutExtension(File file) {
+        if (file == null) {
             throw new RuntimeException();
         }
         String extension = getExtension(file);
@@ -79,7 +79,7 @@ public class FileHelper {
         String fileName = file.getName();
         int lastIndexOf = fileName.lastIndexOf(extension);
 
-        if(lastIndexOf == -1){
+        if (lastIndexOf == -1) {
             return fileName;
         }
 
